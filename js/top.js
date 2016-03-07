@@ -1,3 +1,13 @@
+var map = null;
+
+function addInfoWindow(marker, content){
+	google.maps.event.addListener(marker, 'click', function(event) {
+	new google.maps.InfoWindow({
+		content: content
+	}).open(marker.getMap(), marker);
+	});
+}
+
 window.onload = function(){
 	var latlng = new google.maps.LatLng(35.709984,139.810703);
 	var opts = {
@@ -5,7 +15,7 @@ window.onload = function(){
 	center: latlng,
 	mapTypeId: google.maps.MapTypeId.ROADMAP
 	};
-	var map = new google.maps.Map(document.getElementById("top_map_canvas"), opts);
+	map = new google.maps.Map(document.getElementById("top_map_canvas"), opts);
 
 	$('.bxslider').bxSlider({
 		infiniteLoop: false,
@@ -18,20 +28,41 @@ window.onload = function(){
 	  data: {limit: "12"}
 	}).done(function(resp) {
 		console.log(resp);
-		var len = resp.length;
+		var len = resp.length;	  	
 	  	for(var i=0; i<3; i++){
 	  		for(var j=0; j<4; j++){
 	  			var count =i*4+j; 
 	  			if(count<len){
+
+	  				// 新着記事をスライダーに表示
 	  				var img = $('<img>').attr({'src':'./picture.php?a_id='+resp[count]['a_id']});
 	  				var text = $('<p>').text(resp[count]['article']);
+	  				var href = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']});
+	  				var t = resp[count]['date'].split(/[- :]/);
+	  				var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
+	  				var date = $('<p>').text(d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDay());
+	  				href.append(img);
 	  				var div = $('<div>').addClass('col-lg-3 digest');
-	  				div.append(img);
+	  				div.append(href);
+	  				div.append(date);
 	  				div.append(text);
 	  				$('.bxslider').children(':eq('+i+')').append(div);
 
+	  				//マーカーを表示
+	  				var lat = resp[count]['lat'];
+	  				var lng = resp[count]['lng'];
+	  				console.log(lat)
+	  				if (lat!=null && lng!=null){
+	  					var marker = new google.maps.Marker({
+							position: new google.maps.LatLng(lat, lng),
+							map: map
+					  	});
+						var content = "<a href=\"./show.php?a_id="+resp[count]['a_id']+"\">"+resp[count]['title']+"</a>";
+						addInfoWindow(marker, content);
+	  				}
 	  			}
 	  		}
 	  	}
+
 	});
 }

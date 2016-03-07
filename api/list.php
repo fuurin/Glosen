@@ -5,7 +5,8 @@ $limit = isset( $_GET['limit'] ) && ctype_digit($_GET['limit']) ? intval($_GET['
 $page = isset( $_GET['page'] ) && ctype_digit($_GET['limit']) ? intval($_GET["page"])-1 : 0;
 
 $pdo = new MyPDO();
-$sql = "SELECT a_id, article FROM kgp_article ORDER BY a_id DESC LIMIT ".($page*$limit).",".$limit;
+
+$sql = "SELECT a_id, title, date, article, lat, lng FROM kgp_article ORDER BY a_id DESC LIMIT ".($page*$limit).",".$limit;
 $stmt = $pdo->prepare($sql);
 $res = $stmt->execute();
 $articles = array();

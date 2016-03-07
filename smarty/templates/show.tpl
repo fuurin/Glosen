@@ -12,10 +12,14 @@
 			mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 			var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
-	    	}
+			var marker = new google.maps.Marker({
+                position: latlng,
+                map: map
+            });			
+	    }
+	    	
 	    </script>
 	{/if}
-
 
 	<div class="panel panel-default">
 		<div class="panel-heading">
@@ -36,6 +40,12 @@
 			{if isset($load_map_js)}
 				<div id="map_canvas"></div>
 			{/if}
+
+			<div>
+				{if $id==$article['id']}
+				<a href="./edit.php?a_id={$article['a_id']}"><button type="button" class="btn btn-primary">記事を編集</button></a>
+				{/if}
+			</div>
 
 		</div>
 	</div>

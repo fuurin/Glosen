@@ -1,7 +1,7 @@
 {* Post Article Page *}
 <div>
 	<h2>新規投稿</h2>
-	<form action="./post.php" method="post" class="well" enctype="multipart/form-data">
+	<form action="./edit.php?a_id={$a_id}" method="post" class="well" enctype="multipart/form-data">
 
 		<div class="form-group">
 			<label>タイトル</label>
@@ -25,7 +25,7 @@
 		</div>
 		<div class="form-group">
 			<label>
-			<input type="checkbox" name="location[]" value="" {if isset($params['location'])}checked{/if}>
+			<input type="checkbox" name="location[]" value="" {if isset($params['lat'])}checked{/if}>
 			位置情報を添付	
 			</label>
 	    	<div id="map_canvas" style="width:500px; height:300px"></div>

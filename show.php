@@ -36,6 +36,7 @@ $name = $auth->get_name();
 
 if(!is_null($name)){
 	$smarty->assign('name',$name);
+	$smarty->assign('id',$auth->get_id());
 }
 
 if(isset($error)){

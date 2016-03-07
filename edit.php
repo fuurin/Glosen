@@ -5,10 +5,25 @@ require_once (dirname(__FILE__).'/MyPDO.php');
 $params = include dirname(__FILE__).'/config.php';
 $map_key = $params['map_key'];
 $auth = new Auth();
-if (!$auth->is_logged_in()) {
+if (!$auth->is_logged_in() || !isset($_GET['a_id'])) {
     header('Location: ./login.php');
     return;
 }
+
+$a_id = $_GET['a_id'];
+
+$pdo = new MyPDO();
+$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+$stmt = $pdo->prepare("SELECT * FROM kgp_article WHERE a_id=? LIMIT 1");
+$stmt->execute(array($a_id));
+$row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if($row['id']!=$auth->get_id()){
+    header('Location: ./login.php');
+    return;
+}
+
 if (count($_POST) != 0) {
     if (empty($_POST['title'])){
     	$error = "タイトルが入力されていません";
@@ -17,8 +32,7 @@ if (count($_POST) != 0) {
     }else if(empty($_POST['article'])) {
     	$error = "本文が入力されていません";
     }else{
-        $pdo = new MyPDO();
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        
         $result = false;
         //画像が添付されているとき
         if (isset($_FILES['picture']) && isset($_FILES['picture']['error']) && $_FILES['picture']['error'] == 0) {
@@ -54,13 +68,13 @@ if (count($_POST) != 0) {
 
                             //位置情報をのせるとき
                             if (isset($_POST['location'])) {
-                                $sql = "INSERT INTO kgp_article (id,title,country,university,article,lat,lng,zoom,picture) VALUE (?,?,?,?,?,?,?,?,?)";
+                                $sql = "UPDATE kgp_article SET title=?,country=?,university=?,article=?,lat=?,lng=?,zoom=?,picture=? WHERE a_id=?";
                                 $stmt = $pdo->prepare($sql);
-                                $result = $stmt->execute(array($auth->get_id(), $_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], $_POST['lat'], $_POST['lng'], $_POST['zoom'], file_get_contents($_FILES['picture']['tmp_name'] . "_")));
+                                $result = $stmt->execute(array($_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], $_POST['lat'], $_POST['lng'], $_POST['zoom'], file_get_contents($_FILES['picture']['tmp_name'] . "_"), $a_id));
                             } else {
-                                $sql = "INSERT INTO kgp_article (id,title,country,university,article,picture) VALUE (?,?,?,?,?,?)";
+                                $sql = "UPDATE kgp_article SET title=?,country=?,university=?,article=?,picture=? WHERE a_id=?";
                                 $stmt = $pdo->prepare($sql);
-                                $result = $stmt->execute(array($auth->get_id(), $_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], file_get_contents($_FILES['picture']['tmp_name'] . "_")));
+                                $result = $stmt->execute(array($_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], file_get_contents($_FILES['picture']['tmp_name'] . "_"), $a_id));
                             }
                             
                         } else {
@@ -74,13 +88,13 @@ if (count($_POST) != 0) {
         } else {
             //位置情報をのせるとき
             if (isset($_POST['location'])) {
-                $sql = "INSERT INTO kgp_article (id,title,country,university,article,lat,lng,zoom) VALUE (?,?,?,?,?,?,?,?)";
+                $sql = "UPDATE kgp_article SET title=?,country=?,university=?,article=?,lat=?,lng=?,zoom=? WHERE a_id=?";
                 $stmt = $pdo->prepare($sql);
-                $result = $stmt->execute(array($auth->get_id(), $_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], $_POST['lat'], $_POST['lng'], $_POST['zoom']));
+                $result = $stmt->execute(array($_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], $_POST['lat'], $_POST['lng'], $_POST['zoom'],$a_id));
             } else {
-                $sql = "INSERT INTO kgp_article (id,title,country,university,article) VALUE (?,?,?,?,?)";
+                $sql = "UPDATE kgp_article SET title=?,country=?,university=?,article=? WHERE a_id=?";
                 $stmt = $pdo->prepare($sql);
-                $result = $stmt->execute(array($auth->get_id(), $_POST['title'], $_POST['country'], $_POST['university'], $_POST['article']));
+                $result = $stmt->execute(array($_POST['title'], $_POST['country'], $_POST['university'], $_POST['article'], $a_id));
             }
         }
         if ($result) {
@@ -92,6 +106,11 @@ if (count($_POST) != 0) {
             }                  
         }
     }
+
+    $posts = $_POST;
+
+} else{
+    $posts = $row;
 }
 $smarty = new MySmarty();
 $name = $auth->get_name();
@@ -101,9 +120,10 @@ if (!is_null($name)) {
 if (isset($error)) {
     $smarty->assign('error', $error);
 }
-$smarty->assign('params', $_POST);
+$smarty->assign('a_id', $a_id);
+$smarty->assign('params', $posts);
 $smarty->assign('load_map_js', true);
-$smarty->assign('content_path', 'post.tpl');
+$smarty->assign('content_path', 'edit.tpl');
 $smarty->display('main.tpl');
 
 ?>
