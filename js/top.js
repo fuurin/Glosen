@@ -27,7 +27,7 @@ window.onload = function(){
 	  url: "./api/list.php",
 	  data: {limit: "12"}
 	}).done(function(resp) {
-		console.log(resp);
+		// console.log(resp);
 		var len = resp.length;	  	
 	  	for(var i=0; i<3; i++){
 	  		for(var j=0; j<4; j++){
@@ -51,7 +51,7 @@ window.onload = function(){
 	  				//マーカーを表示
 	  				var lat = resp[count]['lat'];
 	  				var lng = resp[count]['lng'];
-	  				console.log(lat)
+	  				// console.log(lat)
 	  				if (lat!=null && lng!=null){
 	  					var marker = new google.maps.Marker({
 							position: new google.maps.LatLng(lat, lng),
