@@ -3,7 +3,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Kosen Global Project</title>
+<title>Glosen -Kosen Global Project-</title>
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet" href="./css/bootstrap.css">
 <script type="text/javascript" src="./js/jquery.min.js"></script>
