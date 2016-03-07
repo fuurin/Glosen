@@ -12,7 +12,6 @@ body {
 	background: -ms-linear-gradient(top, #003a70 27%, #668ea9 71%, #fff 100%);
 	background: linear-gradient(to bottom, #003a70 27%, #668ea9 71%, #fff 100%);
 
-
 	font-family: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
 }
 
@@ -24,6 +23,10 @@ header:after {
 	content: "";
 	display: block;
 	clear: both;
+}
+
+.white_text {
+	color: white;
 }
 
 #user_menu{

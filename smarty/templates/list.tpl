@@ -1,7 +1,7 @@
 {* Article List Page *}
 <div>
 	{if is_null($query)}
-		<h2>記事一覧</h2>
+		<h2 class="white_text">記事一覧</h2>
 	{else}
 		<h2>「{$query|escape:"html"}」での検索結果</h2>
 	{/if}
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	{foreachelse}
-	<div>
+	<div class="white_text">
 		検索結果が見つかりませんでした。
 	</div>
 	{/foreach}
@@ -55,7 +55,7 @@
 	{/if}
 
 	<form action="./list.php" method="get" class="well">
-		<h3>記事を探す</h3>
+		<h3 style="margin-top: 0px">記事を探す</h3>
 		<div class="input-group">
 			<input type="text" name="query" class="form-control" placeholder="キーワード" {if !is_null($query)}value="{$query}"{/if}>
 			<span class="input-group-btn">

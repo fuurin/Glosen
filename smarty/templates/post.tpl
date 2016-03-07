@@ -1,6 +1,6 @@
 {* Post Article Page *}
 <div>
-	<h2>新規投稿</h2>
+	<h2 class="white_text">新規投稿</h2>
 	<form action="./post.php" method="post" class="well" enctype="multipart/form-data">
 
 		<div class="form-group">

@@ -1,6 +1,6 @@
 {* Login  Page *}
 <div>
-	<h2>ログイン</h2>
+	<h2 class="white_text">ログイン</h2>
 	<form action="./login.php" method="post" class="well">
 		<div class="form-group">
 			<label>ユーザー名</label>
