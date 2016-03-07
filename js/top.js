@@ -35,6 +35,7 @@ window.onload = function(){
 	  			if(count<len){
 
 	  				// 新着記事をスライダーに表示
+	  				var title = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']}).text(resp[count]['title']) 
 	  				var img = $('<img>').attr({'src':'./picture.php?a_id='+resp[count]['a_id']});
 	  				var text = $('<p>').text(resp[count]['article']);
 	  				var href = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']});
@@ -43,6 +44,7 @@ window.onload = function(){
 	  				var date = $('<p>').text(d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDay());
 	  				href.append(img);
 	  				var div = $('<div>').addClass('col-lg-3 digest');
+	  				div.append(title);
 	  				div.append(href);
 	  				div.append(date);
 	  				div.append(text);

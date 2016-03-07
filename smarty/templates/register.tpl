@@ -1,6 +1,6 @@
 {* Register  Page *}
 <div>
-	<h2>新規ユーザー登録</h2>
+	<h2 class="white_text">新規ユーザー登録</h2>
 	<form action="./register.php" method="post" class="well">
 		<div class="form-group">
 			<label>ユーザー名</label>

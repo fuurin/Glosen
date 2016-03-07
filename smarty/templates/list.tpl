@@ -1,7 +1,7 @@
 {* Article List Page *}
 <div>
 
-	<h2 class="white_text">記事一覧</h2><br/>
+	<h2 class="white_text">記事一覧</h2>
 
 	<form action="./list.php" method="get" class="well">
 		<h3 style="margin-top: 0px">記事を探す</h3>
@@ -11,7 +11,7 @@
 				<button type="submit" class="btn btn-default" type="button">検索</button>
 			</span>
 		</div>
-	</form><br/>
+	</form>
 
 	{if !is_null($query)}
 		<h2 class="white_text">「{$query|escape:"html"}」での検索結果</h2><br/>
@@ -34,7 +34,9 @@
 			<div class="col-lg-4">
 				{if !is_null($article['picture'])}
 				<div>
-					<img style="max-width: 200px; height: auto;" src="./picture.php?a_id={$article['a_id']}">
+					<a href="./show.php?a_id={$article['a_id']}">
+						<img style="max-width: 200px; height: auto;" src="./picture.php?a_id={$article['a_id']}">
+					</a>
 				</div>
 				{/if}
 			</div>	

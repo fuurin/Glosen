@@ -46,6 +46,8 @@
 			<div>
 				{if isset($id) && $id==$article['id']}
 				<a href="./edit.php?a_id={$article['a_id']}"><button type="button" class="btn btn-primary">記事を編集</button></a>
+
+				<a href="./delete.php?a_id={$article['a_id']}"><button type="button" class="btn btn-primary" style="margin-left: 20px">記事を削除</button></a>
 				{/if}
 			</div>
 
