@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="./js/top.js"></script>
 
 	<form action="./list.php" method="get" class="well">
-		<h3>記事を探す</h3>
+		<h3 style="margin-top: 0px">記事を探す</h3>
 		<div class="input-group">
 			<input type="text" name="query" class="form-control" placeholder="キーワード">
 			<span class="input-group-btn">
