@@ -11,12 +11,12 @@ body {
 	background: -ms-linear-gradient(top, #002a70 27%, #668ca9 75%, #fff 100%);
 	background: linear-gradient(to bottom, #002a70 27%, #668ca9 75%, #fff 100%);
 
-	font-style: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
+	font-family: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
 }
 
 a {
 	color: #fff;
-	font-style: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
+	font-family: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
 }
 
 header:after {
