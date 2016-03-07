@@ -20,43 +20,43 @@
 			</a>
 			<ul id="user_menu" class="nav nav-pills">
 					<li>
-						<a href="./list.php">記事一覧</a>
+						<a href="./list.php" class="white_text">記事一覧</a>
 					</li>
 				{if isset($name)}
 					<li>
-						<a href="./post.php">記事を書く</a>
+						<a href="./post.php" class="white_text">記事を書く</a>
 					</li>
 					<li>
-						<a href="./logout.php">ログアウト</a>
+						<a href="./logout.php" class="white_text">ログアウト</a>
 					</li>
 					<li>
-						<a href="#">マイページ</a>
+						<a href="#" class="white_text">マイページ</a>
 					</li>
 				{else}
 					<li>
-						<a href="./register.php">新規登録</a>
+						<a href="./register.php" class="white_text">新規登録</a>
 					</li>
 					<li>
-						<a href="./login.php">ログイン</a>
+						<a href="./login.php" class="white_text">ログイン</a>
 					</li>
 				{/if}
 			</ul>
 			
 			<ul id="header_menu" class="nav nav-justified">
 				<li>
-					<a href="./about.php">高専留学とは</a>
+					<a href="./about.php" class="white_text">高専留学とは</a>
 				</li>
 				<li>
-					<a href="#">留学のプロセス</a>
+					<a href="#" class="white_text">留学のプロセス</a>
 				</li>
 				<li>
-					<a href="#">ロールモデル</a>
+					<a href="#" class="white_text">ロールモデル</a>
 				</li>
 				<li>
-					<a href="#">奨学金</a>
+					<a href="#" class="white_text">奨学金</a>
 				</li>
 				<li>
-					<a href="#">相談する</a>
+					<a href="#" class="white_text">相談する</a>
 				</li>
 			</ul>
 		</header>

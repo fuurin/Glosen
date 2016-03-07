@@ -37,6 +37,7 @@
 	left: -5px;
 	background: #efefef;
 	padding-top: 15px;
+	height: 270px;
 	
 	/*fix other elements on the page moving (on Chrome)*/
 	-webkit-transform: translatez(0);
