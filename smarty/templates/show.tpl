@@ -41,8 +41,10 @@
 				<div id="map_canvas"></div>
 			{/if}
 
+			<br/>
+
 			<div>
-				{if $id==$article['id']}
+				{if isset($id) && $id==$article['id']}
 				<a href="./edit.php?a_id={$article['a_id']}"><button type="button" class="btn btn-primary">記事を編集</button></a>
 				{/if}
 			</div>
