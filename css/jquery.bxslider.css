@@ -36,8 +36,9 @@
 	border:  5px solid #efefef;
 	left: -5px;
 	background: #efefef;
-	padding-top: 15px;
-	height: 270px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 280px;
 	
 	/*fix other elements on the page moving (on Chrome)*/
 	-webkit-transform: translatez(0);

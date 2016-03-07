@@ -19,6 +19,10 @@ a {
 	font-family: "HiraKakuProN-W6", "ヒラギノ角ゴ ProN W6",  Meiryo, メイリオ, sans-serif
 }
 
+.date{
+	color: #999;
+}
+
 header:after {
 	content: "";
 	display: block;

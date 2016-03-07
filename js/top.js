@@ -35,13 +35,13 @@ window.onload = function(){
 	  			if(count<len){
 
 	  				// 新着記事をスライダーに表示
-	  				var title = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']}).text(resp[count]['title']) 
+	  				var title = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']}).text(resp[count]['title']);
 	  				var img = $('<img>').attr({'src':'./picture.php?a_id='+resp[count]['a_id']});
 	  				var text = $('<p>').text(resp[count]['article']);
 	  				var href = $('<a>').attr({'href':'./show.php?a_id='+resp[count]['a_id']});
 	  				var t = resp[count]['date'].split(/[- :]/);
 	  				var d = new Date(t[0], t[1]-1, t[2], t[3], t[4], t[5]);
-	  				var date = $('<p>').text(d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDay());
+	  				var date = $('<span>').text(d.getFullYear()+"/"+(d.getMonth()+1)+"/"+d.getDay()).addClass("date");
 	  				href.append(img);
 	  				var div = $('<div>').addClass('col-lg-3 digest');
 	  				div.append(title);
