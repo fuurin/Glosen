@@ -33,9 +33,10 @@
 	-moz-box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
 	box-shadow: 0 0 5px #ccc;
-	border:  5px solid #fff;
+	border:  5px solid #efefef;
 	left: -5px;
-	background: #fff;
+	background: #efefef;
+	padding-top: 15px;
 	
 	/*fix other elements on the page moving (on Chrome)*/
 	-webkit-transform: translatez(0);

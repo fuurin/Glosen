@@ -1,9 +1,20 @@
 {* Article List Page *}
 <div>
-	{if is_null($query)}
-		<h2 class="white_text">記事一覧</h2>
-	{else}
-		<h2>「{$query|escape:"html"}」での検索結果</h2>
+
+	<h2 class="white_text">記事一覧</h2><br/>
+
+	<form action="./list.php" method="get" class="well">
+		<h3 style="margin-top: 0px">記事を探す</h3>
+		<div class="input-group">
+			<input type="text" name="query" class="form-control" placeholder="キーワード" {if !is_null($query)}value="{$query}"{/if}>
+			<span class="input-group-btn">
+				<button type="submit" class="btn btn-default" type="button">検索</button>
+			</span>
+		</div>
+	</form><br/>
+
+	{if !is_null($query)}
+		<h2 class="white_text">「{$query|escape:"html"}」での検索結果</h2><br/>
 	{/if}
 	
 	{foreach from=$articles item=article}
@@ -53,15 +64,5 @@
 		</ul>
 	</nav>
 	{/if}
-
-	<form action="./list.php" method="get" class="well">
-		<h3 style="margin-top: 0px">記事を探す</h3>
-		<div class="input-group">
-			<input type="text" name="query" class="form-control" placeholder="キーワード" {if !is_null($query)}value="{$query}"{/if}>
-			<span class="input-group-btn">
-				<button type="submit" class="btn btn-default" type="button">検索</button>
-			</span>
-		</div>
-	</form>
 	
 </div>
