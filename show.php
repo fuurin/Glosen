@@ -15,6 +15,7 @@ if(isset($_GET['a_id'])){
 	exit();
 }
 
+// Get Article
 $pdo = new MyPDO();
 $sql = "SELECT * FROM kgp_article WHERE a_id =? LIMIT 1";
 $stmt = $pdo->prepare($sql);
@@ -28,16 +29,28 @@ if(!isset($article)){
 	exit();
 }
 
+// Get name
+$sql = "SELECT name FROM kgp_user WHERE id =?";
+$stmt = $pdo->prepare($sql);
+$stmt->execute(array($article["id"]));
+
+while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
+	$name = $result['name'];
+}
+
 $smarty = new MySmarty();
 
 $smarty->assign('article', $article);
+$smarty->assign('name', $name);
 
+/*
 $name = $auth->get_name();
 
 if(!is_null($name)){
 	$smarty->assign('name',$name);
 	$smarty->assign('id',$auth->get_id());
 }
+*/
 
 if(isset($error)){
 	$smarty->assign('error',$error);
