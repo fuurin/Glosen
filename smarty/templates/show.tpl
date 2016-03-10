@@ -50,11 +50,11 @@
 					</button>
 				</a>
 
-				<form method="post">
+				<form action="./delete.php" method="post" style="display: inline;">
 					<input type="hidden" name="a_id" value="{$article['a_id']}"></input>
 					<input type="hidden" name="title" value="{$article['title']}"></input>
 					<input type="submit" class="btn btn-primary"　
-					style="margin-left: 20px" value="記事を削除">	
+					style="margin-left: 20px; font-weight: bold;" value="記事を削除">	
 				</form>
 				{/if}
 			</div>
