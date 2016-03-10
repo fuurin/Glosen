@@ -47,16 +47,16 @@
 					<a href="./about.php" class="white_text">高専留学とは</a>
 				</li>
 				<li>
-					<a href="#" class="white_text">留学のプロセス</a>
+					<a href="./about.php" class="white_text">留学のプロセス</a>
 				</li>
 				<li>
-					<a href="#" class="white_text">ロールモデル</a>
+					<a href="./about.php" class="white_text">ロールモデル</a>
 				</li>
 				<li>
-					<a href="#" class="white_text">奨学金</a>
+					<a href="./about.php" class="white_text">奨学金</a>
 				</li>
 				<li>
-					<a href="#" class="white_text">相談する</a>
+					<a href="./about.php" class="white_text">相談する</a>
 				</li>
 			</ul>
 		</header>

@@ -2,7 +2,6 @@
 
 	<script type="text/javascript">
 		function deleteArticle(a_id) {
-			console.log(a_id);
 			$.ajax({
 			  type: "POST",
 			  url: "api/deleteExec.php",
@@ -23,14 +22,16 @@
 			<h3 class="panel-title">{$title|escape:"html"}の削除</h3>
 		</div>
 		<div class="panel-body">
-			<p style="color: red;">{$message|escape:"html"}</p><br/>
+			<p style="color: red;">{$message|escape:"html"}</p>
 
+			{if isset($a_id)}
 			<button type="deleteBtn" class="btn btn-primary" style="background-color: red;"
 				onclick="deleteArticle({$a_id});">
 				記事を削除
 			</button>
 
 			<br/><br/>
+			{/if}
 
 			<a href="./show.php?a_id={$a_id}">
 				<button type="deleteBtn" class="btn btn-primary">

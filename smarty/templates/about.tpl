@@ -1,4 +1,4 @@
 {* About  Page *}
-<div>
-	高専留学とは…
-</div>
+<h2 class="white_text">
+	Coming soon…
+</h2>
