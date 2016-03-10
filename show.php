@@ -44,7 +44,7 @@ while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 $smarty = new MySmarty();
 
 $smarty->assign('article', $article);
-$smarty->assign('name', $author_name);
+$smarty->assign('author_name', $author_name);
 if (isset($name)) {
 	$smarty->assign('id', $auth->get_id());
 }
