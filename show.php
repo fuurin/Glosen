@@ -8,6 +8,9 @@ $map_key = $params['map_key'];
 
 $auth = new Auth();
 
+if (isset($_SESSION['user_id'])) {
+	$smarty->assign('id', $_SESSION['user_id']);
+}
 
 if(isset($_GET['a_id'])){
 	$a_id = $_GET['a_id'];
@@ -42,15 +45,6 @@ $smarty = new MySmarty();
 
 $smarty->assign('article', $article);
 $smarty->assign('name', $name);
-
-/*
-$name = $auth->get_name();
-
-if(!is_null($name)){
-	$smarty->assign('name',$name);
-	$smarty->assign('id',$auth->get_id());
-}
-*/
 
 if(isset($error)){
 	$smarty->assign('error',$error);
