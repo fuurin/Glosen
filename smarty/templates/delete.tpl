@@ -5,15 +5,14 @@
 			console.log(a_id);
 			$.ajax({
 			  type: "POST",
-			  url: ".api/deleteExec.php",
-			  data: "name=" + a_id,
+			  url: "api/deleteExec.php",
+			  data: "a_id=" + a_id,
 			  success: function(){
 				alert('記事を削除しました。');
 				document.location = "./list.php";
 			  }
 			});
 		}
-		// Delete page has SQL to delete the article, and return top button
 	</script>
 
 <div>
