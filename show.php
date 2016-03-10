@@ -7,6 +7,10 @@ $params = (include dirname(__FILE__).'/config.php');
 $map_key = $params['map_key'];
 
 $auth = new Auth();
+$name = $auth->get_name();
+if(!is_null($name)){
+	$smarty->assign('name',$name);
+}
 
 if(isset($_GET['a_id'])){
 	$a_id = $_GET['a_id'];
@@ -28,20 +32,20 @@ if(!isset($article)){
 	exit();
 }
 
-// Get name
+// Get author name
 $sql = "SELECT name FROM kgp_user WHERE id =?";
 $stmt = $pdo->prepare($sql);
-$stmt->execute(array($article["id"]));
+$stmt->execute(array($article['id']));
 
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
-	$name = $result['name'];
+	$author_name = $result['name'];
 }
 
 $smarty = new MySmarty();
 
 $smarty->assign('article', $article);
-$smarty->assign('name', $name);
-if (isset($_SESSION['user_id'])) {
+$smarty->assign('name', $author_name);
+if (isset($name)) {
 	$smarty->assign('id', $auth->get_id());
 }
 

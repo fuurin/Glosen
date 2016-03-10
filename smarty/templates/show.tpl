@@ -25,7 +25,7 @@
 			<h3 class="panel-title">{$article['title']|escape:"html"}</h3>
 		</div>
 		<div class="panel-body">
-			<p>投稿者: {$name|escape:"html"}</p>
+			<p>投稿者: {$author_name|escape:"html"}</p>
 			<p>国: {$article['country']|escape:"html"}</p>
 			<p>大学: {$article['university']|escape:"html"}</p>
 			<div>
