@@ -7,10 +7,6 @@ $params = (include dirname(__FILE__).'/config.php');
 $map_key = $params['map_key'];
 
 $auth = new Auth();
-$name = $auth->get_name();
-if(!is_null($name)){
-	$smarty->assign('name',$name);
-}
 
 if(isset($_GET['a_id'])){
 	$a_id = $_GET['a_id'];
@@ -29,6 +25,7 @@ while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 }
 
 if(!isset($article)){
+	// 表示する記事がありません、と出したい
 	exit();
 }
 
@@ -41,7 +38,13 @@ while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 	$author_name = $result['name'];
 }
 
+// Smarty Assign
 $smarty = new MySmarty();
+
+$name = $auth->get_name();
+if(!is_null($name)){
+	$smarty->assign('name',$name);
+}
 
 $smarty->assign('article', $article);
 $smarty->assign('author_name', $author_name);
