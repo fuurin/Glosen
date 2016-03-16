@@ -4,14 +4,14 @@ require_once(dirname(__FILE__).'/Auth.php');
 
 $auth = new Auth();
 
+$error = "OK";
+
 if(!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["password_confirm"])) {
 
-	$error = "OK";
-
-	// $username = $_POST["username"];
-	// $password = $_POST["password"];
-	// $confirm = $_POST["password_confirm"];
-	// $error = "";
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	$confirm = $_POST["password_confirm"];
+	$error = "";
 
 	// if(!isset($username) || !isset($password) || !isset($confirm)){
 	// 	$error .= "全ての項目が入力必須です。<br/>";
