@@ -34,7 +34,7 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 	$result = $auth->register($username, $password);
 
 	if($result == False) {
-		$error .= "そのユーザー名はすでに使われています<br/>"
+		$error .= "そのユーザー名はすでに使われています<br/>";
 	}
 
 	// Success
