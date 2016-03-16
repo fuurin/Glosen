@@ -13,8 +13,8 @@ $error = "";
 		$error .= "全ての項目が入力必須です。<br/>";
 	}
 
-	$name_len = strlen($username);
-	$pass_len = strlen($password);
+	$name_len = mb_strlen($username);
+	$pass_len = mb_strlen($password);
 
 	if($name_len < 3 || $name_len > 30) {
 		$error .= "ユーザー名は3文字以上30文字以内で入力してください。<br/>";
