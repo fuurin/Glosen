@@ -62,8 +62,11 @@
 		</header>
 		
 		{if isset($name)}
-			<div class="well">
-				<span style="font-size: 20px;">ようこそ! {$name} さん</span>
+			<div class="well" style="margin-top: 10px;">
+				<span style="font-size: 20px;">ようこそ! 
+					<span style="color: blue; font-weight: bold;">{$name}</span>
+					さん
+				</span>
 			</div>
 		{/if}
 
