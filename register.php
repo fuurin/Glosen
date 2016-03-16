@@ -9,7 +9,7 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$confirm = $_POST["password_confirm"];
-	$error = "OK<br/>";
+	$error = "";
 
 	if(empty($username) || empty($password) || empty($confirm)){
 		$error .= "全ての項目が入力必須です。<br/>";
@@ -31,18 +31,18 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 	}
 
 	// // Execute register
-	// $result = $auth->register($username, $password);
+	$result = $auth->register($username, $password);
 
-	// if($result == False) {
-	// 	$error .= "そのユーザー名はすでに使われています<br/>"
-	// }
+	if($result == False) {
+		$error .= "そのユーザー名はすでに使われています<br/>"
+	}
 
-	// // Success
-	// if(empty($error){
-	// 	$auth->login($name, $password)
-	// 	header('Location: ./index.php');
-	// 	return;
-	// }
+	// Success
+	if(empty($error)){
+		$auth->login($name, $password)
+		header('Location: ./index.php');
+		return;
+	}
 }
 
 
