@@ -11,9 +11,9 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 	$confirm = $_POST["password_confirm"];
 	$error = "OK";
 
-	if(!isset($username) || !isset($password) || !isset($confirm)){
-		$error .= "全ての項目が入力必須です。<br/>";
-	}
+	// if(!empty($username) || !empty($password) || !empty($confirm)){
+	// 	$error .= "全ての項目が入力必須です。<br/>";
+	// }
 
 	$name_len = mb_strlen($username);
 	$pass_len = mb_strlen($password);
@@ -38,7 +38,7 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 	// }
 
 	// // Success
-	// if($error == ""){
+	// if(empty($error){
 	// 	$auth->login($name, $password)
 	// 	header('Location: ./index.php');
 	// 	return;
@@ -55,7 +55,7 @@ if(!is_null($name)){
 	$smarty->assign('name',$name);
 }
 
-if($error != ""){
+if(!empty($error)){
 	$smarty->assign('error',$error);
 }
 
