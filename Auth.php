@@ -14,15 +14,15 @@ class Auth {
 		}
 	}
 
-	function isExist($name, $password) {
-		$sql = 'SELECT id FROM kgp_user WHERE name = ? AND password = ?';
+	function isExist($name) {
+		$sql = 'SELECT id FROM kgp_user WHERE name = ?';
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute(array($name, $password));
+		$stmt->execute(array($name));
 		return $result = $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 	function register($name, $password){
-		if($this->isExist($name, $password)) {
+		if($this->isExist($name)) {
 			return False;
 		}
 		$password = $this->hash_password($password);
