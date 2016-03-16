@@ -4,7 +4,7 @@ require_once(dirname(__FILE__).'/Auth.php');
 
 $auth = new Auth();
 
-if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["password_confirm"])) {
+if(!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["password_confirm"])) {
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
@@ -15,8 +15,8 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 		$error .= "全ての項目が入力必須です。<br/>";
 	}
 
-	$name_len = strlen($username);
-	$pass_len = strlen($password);
+	$name_len = mb_strlen($username);
+	$pass_len = mb_strlen($password);
 
 	if($name_len < 3 || $name_len > 30) {
 		$error .= "ユーザー名は3文字以上30文字以内で入力してください。<br/>";
