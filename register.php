@@ -31,9 +31,9 @@ $error = "";
 	// Execute register
 	//$result = $auth->register($username, $password);
 
-	if($result == False) {
-		$error .= "そのユーザー名はすでに使われています<br/>"
-	}
+	// if($result == False) {
+	// 	$error .= "そのユーザー名はすでに使われています<br/>"
+	// }
 
 	// Success
 	// if($error == ""){

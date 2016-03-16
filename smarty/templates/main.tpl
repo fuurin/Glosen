@@ -63,7 +63,7 @@
 		
 		{if isset($name)}
 			<div class="well">
-				<h3>ようこそ! {$name} さん</h3>
+				<p>ようこそ! {$name} さん</p>
 			</div>
 		{/if}
 
