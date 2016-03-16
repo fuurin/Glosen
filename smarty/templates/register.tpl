@@ -15,7 +15,7 @@
 			<input type="password" name="password_confirm" class="form-control">
 		</div>
 		<div class="form-group">
-			<input type="submit" value="ログイン" class="btn btn-default">
+			<input type="submit" value="登録" class="btn btn-default">
 		</div>
 	</form>
 </div>

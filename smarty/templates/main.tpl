@@ -60,6 +60,13 @@
 				</li>
 			</ul>
 		</header>
+		
+		{if isset($name)}
+			<div class="well">
+				<h2>ようこそ! {$name}　さん</h2>
+			</div>
+		{/if}
+
 		<div id="content">
 			{if isset($error)}
 				<div class="alert alert-danger" role="alert">{$error}</div>

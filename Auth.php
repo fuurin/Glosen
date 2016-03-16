@@ -14,17 +14,24 @@ class Auth {
 		}
 	}
 
+	function isExist($name, $password) {
+		$sql = 'SELECT id FROM kgp_user WHERE name = ? AND password = ?';
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute(array($name, $password));
+		return $result = $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
 	function register($name, $password){
+		if($this->isExist($name, $password)) {
+			return False;
+		}
 		$password = $this->hash_password($password);
 		$sql = 'INSERT INTO kgp_user (name, password) VALUES (?, ?)';
-		$stmt = $this->pdo->prepare($sql);		return $stmt->execute(array($name, $password));
-
+		$stmt = $this->pdo->prepare($sql);
+		return $stmt->execute(array($name, $password));
 	}
 
 	function login($name, $password){
-		if ($this->is_logged_in()) {
-			return 1;
-		}
 		$password = $this->hash_password($password);
 		$sql = 'SELECT id FROM kgp_user WHERE name = ? AND password = ?';
 		$stmt = $this->pdo->prepare($sql);
