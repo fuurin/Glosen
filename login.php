@@ -9,14 +9,23 @@ if($auth->is_logged_in()){
 	return;
 }
 
-if(!empty($_POST["username"]) && !empty($_POST["password"])){
-	$result = $auth->login($_POST["username"],$_POST["password"]);
-	if($result){
-		header('Location: ./');
+if(!empty($_POST["username"]) || !empty($_POST["password"])){
+
+	$username = $_POST["username"];
+	$password = $_POST["password"];
+	$error = "";
+
+	// Execute login
+	$result = $auth->login($username, $password);
+
+	if($result == False) {
+		$error .= "そのユーザー名とパスワードの組み合わせは存在しません。";
+	}
+
+	// Success
+	if(empty($error)){
+		header('Location: ./index.php');
 		return;
-	}else{
-		//Failed to login
-		$error = "IDとパスワードが一致しません";
 	}
 }
 

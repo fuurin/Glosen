@@ -30,7 +30,7 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 		$error .= "パスワードと確認用パスワードは、同じものを入力してください。<br/>";
 	}
 
-	// // Execute register
+	// Execute register
 	$result = $auth->register($username, $password);
 
 	if($result == False) {
