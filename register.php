@@ -4,31 +4,31 @@ require_once(dirname(__FILE__).'/Auth.php');
 
 $auth = new Auth();
 
-if(!empty($_POST["username"]) && !empty($_POST["password"]) && !empty($_POST["password_confirm"])) {
+if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["password_confirm"])) {
 
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$confirm = $_POST["password_confirm"];
 	$error = "OK";
 
-	// if(!isset($username) || !isset($password) || !isset($confirm)){
-	// 	$error .= "全ての項目が入力必須です。<br/>";
-	// }
+	if(!isset($username) || !isset($password) || !isset($confirm)){
+		$error .= "全ての項目が入力必須です。<br/>";
+	}
 
 	$name_len = mb_strlen($username);
 	$pass_len = mb_strlen($password);
 
-	// if($name_len < 3 || $name_len > 30) {
-	// 	$error .= "ユーザー名は3文字以上30文字以内で入力してください。<br/>";
-	// }
+	if($name_len < 3 || $name_len > 30) {
+		$error .= "ユーザー名は3文字以上30文字以内で入力してください。<br/>";
+	}
 
-	// if($pass_len < 3 || $pass_len > 30) {
-	// 	$error .= "パスワードは3文字以上30文字以内で入力してください。<br/>";
-	// }
+	if($pass_len < 3 || $pass_len > 30) {
+		$error .= "パスワードは3文字以上30文字以内で入力してください。<br/>";
+	}
 
-	// if($password != $confirm){
-	// 	$error .= "パスワードと確認用パスワードは、同じものを入力してください。<br/>"
-	// }
+	if($password != $confirm){
+		$error .= "パスワードと確認用パスワードは、同じものを入力してください。<br/>"
+	}
 
 	// // Execute register
 	// $result = $auth->register($username, $password);
