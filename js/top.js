@@ -2,12 +2,9 @@ var map = null;
 
 function addInfoWindow(marker, content){
 	google.maps.event.addListener(marker, 'click', function(event) {
-		if (openedInfoWindow != null) openedInfoWindow.close();
-		console.log(openedInfoWindow);
 		openedInfoWindow = new google.maps.InfoWindow({
 			content: content
 		}).open(marker.getMap(), marker);
-		console.log(openedInfoWindow);
 	});
 }
 
