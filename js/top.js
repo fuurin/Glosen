@@ -1,10 +1,13 @@
 var map = null;
 
+var openedInfoWindow;
+
 function addInfoWindow(marker, content){
 	google.maps.event.addListener(marker, 'click', function(event) {
-	new google.maps.InfoWindow({
-		content: content
-	}).open(marker.getMap(), marker);
+		if (openedInfoWindow) openedInfoWindow.close();
+		openedInfoWindow = new google.maps.InfoWindow({
+			content: content
+		}).open(marker.getMap(), marker);
 	});
 }
 
