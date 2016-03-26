@@ -39,7 +39,7 @@ if(!empty($_POST["username"]) || !empty($_POST["password"]) || !empty($_POST["pa
 
 	// Success
 	if(empty($error)){
-		$auth->login($name, $password);
+		$auth->login($username, $password);
 		header('Location: ./index.php');
 		return;
 	}

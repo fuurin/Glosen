@@ -30,7 +30,7 @@
 						<a href="./logout.php" class="white_text">ログアウト</a>
 					</li>
 					<li>
-						<a href="#" class="white_text">マイページ</a>
+						<a href="./about.php" class="white_text">マイページ</a>
 					</li>
 				{else}
 					<li>
