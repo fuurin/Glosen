@@ -25,7 +25,7 @@
 		</div>
 		<div class="form-group">
 			<label>
-			<input type="checkbox" name="location[]" value="" {if isset($params['location'])}checked="checked"{/if}>
+			<input type="checkbox" name="location[]" checked="checked" value="" {if isset($params['location'])}{/if}>
 			位置情報を添付	
 			</label>
 	    	<div id="map_canvas" style="width:500px; height:300px"></div>
