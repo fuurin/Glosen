@@ -4,6 +4,7 @@
 <head>
 <meta charset="utf-8">
 <title>Glosen -Kosen Global Project-</title>
+<link rel="SHORTCUT ICON" href="./img/favicon.ico">
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet" href="./css/bootstrap.css">
 <script type="text/javascript" src="./js/jquery.min.js"></script>
