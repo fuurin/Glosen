@@ -1,10 +1,10 @@
 var map = null;
 
-var openedInfoWindow;
+var openedInfoWindow = null;
 
 function addInfoWindow(marker, content){
 	google.maps.event.addListener(marker, 'click', function(event) {
-		if (openedInfoWindow) openedInfoWindow.close();
+		if (openedInfoWindow != null) openedInfoWindow.close();
 		openedInfoWindow = new google.maps.InfoWindow({
 			content: content
 		}).open(marker.getMap(), marker);
