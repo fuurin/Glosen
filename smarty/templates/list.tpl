@@ -27,7 +27,7 @@
 				<p>投稿者: {$article['name']|escape:"html"}</p>
 				<p>国: {$article['country']|escape:"html"}</p>
 				<p>大学: {$article['university']|escape:"html"}</p>
-				<div>
+				<div class="article_thumb_content">
 					{$article['article']|escape:"html"}
 				</div>
 			</div>

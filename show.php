@@ -22,6 +22,7 @@ $stmt->execute(array($a_id));
 
 while($result = $stmt->fetch(PDO::FETCH_ASSOC)){
 	$article = $result;
+	$article['article'] = nl2br($article['article']);
 }
 
 if(!isset($article)){
