@@ -27,10 +27,10 @@
 		<div class="panel-body">
 			<p>投稿者: {$author_name|escape:"html"}</p>
 			<p>国: {$article['country']|escape:"html"}</p>
-			<p>大学: {$article['university']|escape:"html"}</p>
+			<p>大学: {$article['university']|escape:"html"}</p><br/>
 			<div>
 				{$article['article']}
-			</div>
+			</div><br/>
 			{if !is_null($article['picture'])}
 				<div class="picture">
 					<img style="max-width: 100%; height: auto;" src="./picture.php?a_id={$article['a_id']}">
