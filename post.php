@@ -36,7 +36,7 @@ if (count($_POST) != 0) {
                     $min_height = 600; // 高さの最低サイズ
                     $image_type = exif_imagetype($file1); // 画像タイプ判定用
                     if ($image_type == IMAGETYPE_JPEG) { // JPGかどうか判定
-                        if ($width >= $min_width | $height >= $min_height) {
+                        if ($width > $min_width || $height > $min_height) {
                             if ($width == $height) {
                                 $new_width = $min_width;
                                 $new_height = $min_height;
