@@ -29,7 +29,7 @@
 			<p>国: {$article['country']|escape:"html"}</p>
 			<p>大学: {$article['university']|escape:"html"}</p>
 			<div>
-				{$article['article']|escape:"html"}
+				{$article['article']}
 			</div>
 			{if !is_null($article['picture'])}
 				<div class="picture">
